@@ -1,0 +1,32 @@
+# node dependencies
+node_modules/
+
+# build output
+dist/
+build/
+
+# typescript cache
+*.tsbuildinfo
+
+# logs
+npm-debug.log*
+pnpm-debug.log*
+
+# environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# os/editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# vscode settings
+.vscode/
+
+# coverage/test outputs
+coverage/
