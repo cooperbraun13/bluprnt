@@ -15,6 +15,35 @@ body {
   color: var(--oxford-blue);
 }
 
+.nav{
+  display:flex;
+  flex-direction: row;
+  gap: 20%;
+  justify-content: center;
+  background: var(--oxford-blue);
+  border-radius: 0 0 15px 15px;
+}
+
+selector:hover{
+  a{
+    padding: 20%;
+    background-color: slategrey;
+  }
+}
+
+.nav a{
+  color: var(--tan);
+  padding: 12px 20px;
+  border-radius: 6px;
+  text-decoration:none;
+}
+
+.nav a:hover{
+  outline: 2px slategrey;
+  outline-offset: 3px;
+  background-color: slategrey;
+}
+
 .flex-container {
   display: flex;
   flex-direction: column;
@@ -30,7 +59,6 @@ body {
   font-size: 28px;
   color: white;
   background-color: var(--oxford-blue);
-  border-radius: 0 0 15px 15px;
   padding: 20px 10px;
   text-align: center;
   width: 100vw;
