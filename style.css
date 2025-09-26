@@ -24,16 +24,10 @@ body {
   border-radius: 0 0 15px 15px;
 }
 
-selector:hover{
-  a{
-    padding: 20%;
-    background-color: slategrey;
-  }
-}
-
 .nav a{
   color: var(--tan);
-  padding: 12px 20px;
+  justify-content: center;
+  padding: 15px auto;
   border-radius: 6px;
   text-decoration:none;
 }
