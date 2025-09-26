@@ -33,8 +33,8 @@ body {
 }
 
 .nav a:hover{
-  outline: 2px slategrey;
-  outline-offset: 3px;
+  outline: auto slategrey;
+  outline-offset: auto;
   background-color: slategrey;
 }
 
