@@ -18,7 +18,6 @@
     "exactOptionalPropertyTypes": true,
 
     // Recommended Options
-    "jsx": "react-jsx",
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
