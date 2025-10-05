@@ -1,0 +1,80 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: bluprnt-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-app}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-app_password}
+      POSTGRES_DB: ${POSTGRES_DB:-appdb}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  
+  backend:
+    restart: unless-stopped
+    image: node:20-alpine
+    container_name: bluprnt-backend
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+      - backend_node_modules:/app/node_modules
+    env_file:
+      - .env.backend
+      - .env.db
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      DATABASE_URL: ${DATABASE_URL:-postgresql://app:app_password@db:5432/appdb}
+      CHOKIDAR_USEPOLLING: "true" # ensures live reload on mac/windows
+    depends_on:
+      db:
+        condition: service_healthy
+    command: >
+      sh -c "
+        if [ ! -d node_modules ] || [ -z \"$(ls -A node_modules 2>/dev/null)\" ]; then npm ci || npm install; fi &&
+        npm run dev
+      "
+    ports:
+      - "3000:3000"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:3000/health >/dev/null 2>&1 || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  frontend:
+    restart: unless-stopped
+    image: node:20-alpine
+    container_name: bluprnt-frontend
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+      - frontend_node_modules:/app/node_modules
+    env_file:
+      - .env.frontend
+    environment:
+      NODE_ENV: development
+      CHOKIDAR_USEPOLLING: "true"
+      VITE_API_URL: ${VITE_API_URL:-http://localhost:3000}
+    depends_on:
+      backend:
+        condition: service_healthy
+    command: >
+      sh -c "
+        if [ ! -d node_modules ] || [ -z \"$(ls -A node_modules 2>/dev/null)\" ]; then npm ci || npm install; fi &&
+        npm run dev -- --host 0.0.0.0 --port 5173
+      "
+    ports:
+      - "5173:5173"
+
+volumes:
+  pgdata:
+  backend_node_modules:
+  frontend_node_modules:

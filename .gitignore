@@ -18,6 +18,9 @@ pnpm-debug.log*
 .env.development.local
 .env.test.local
 .env.production.local
+.env.backend
+.env.db
+.env.frontend
 
 # os/editor files
 .DS_Store
