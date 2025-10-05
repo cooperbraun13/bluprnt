@@ -4,7 +4,7 @@ Developed by: Ayden Humphries, Cooper Braun, Cooper McKenny, Chris Wong, and Sam
 
 _Date last modified: 10/05/25_
 
-## How to Run (Docker Setup — Recommended)
+## How to Run (Docker Setup - Recommended)
 
 BluPrnt is fully containerized using **Docker Compose** for consistent local development.  
 You don’t need to install Node, React, or PostgreSQL manually.
@@ -24,7 +24,9 @@ This starts:
 ### Access the app
 
 Frontend &rarr; http://localhost:5173
+
 Backend &rarr; http://localhost:3000
+
 Database &rarr; localhost:5432
 
 ### Stop everything
