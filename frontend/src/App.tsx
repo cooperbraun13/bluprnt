@@ -9,7 +9,7 @@ export default function App() {
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="products" element={<Placeholder title="All Products" />} />
-        <Route path="contractors" element={<Placeholder title="Hire" />} />
+        <Route path="projects" element={<Placeholder title="Projects" />} />
         <Route path="vendors" element={<Placeholder title="Vendor List" />} />
       </Route>
     </Routes>

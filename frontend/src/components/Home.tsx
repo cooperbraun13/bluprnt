@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SearchBar from "./SearchBar";
+import ItemCategories from "./ItemCategories";
 
 export default function Home() {
   const [query, setQuery] = useState("");
@@ -11,6 +12,8 @@ export default function Home() {
   return (
     <>
       <SearchBar value={query} onChange={setQuery} onSearch={handleSearch} />
+      <ItemCategories />
     </>
   );
+
 }
