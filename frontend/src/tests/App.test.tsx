@@ -1,6 +1,6 @@
 import { screen, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import App from "./App";
+import App from "../App";
 import { describe, it, expect } from "vitest";
 
 describe("App tests", () => {
@@ -10,6 +10,6 @@ describe("App tests", () => {
       screen.getByRole("heading", {
         level: 1,
       })
-    ).toHaveTextContent("Vite + React");
+    ).toHaveTextContent("BluPrnt");
   });
 });
