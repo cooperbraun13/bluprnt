@@ -7,5 +7,11 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
     setupFiles: "./frontend/src/setupTests.ts",
+    css: true,
+    coverage: {
+      reporter: ["text", "lcov"],
+      include: ["src/**/*.{ts,tsx}"],
+      exclude: ["src/main.tsx", "src/**/*.test.{ts,tsx}"],
+    },
   },
 });

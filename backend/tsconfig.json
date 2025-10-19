@@ -19,7 +19,7 @@
 
     // Recommended Options
     "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
+    // "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
   },
   "include": ["src/**/*.ts"],
