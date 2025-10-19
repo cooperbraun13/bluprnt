@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Layout from "./Layout";
-import Home from "./components/Home";
-import Placeholder from "./components/Placeholder";
+import Home from "./pages/Home/Home";
+import Placeholder from "./components/Placeholder/Placeholder";
 
 export default function App() {
   return (

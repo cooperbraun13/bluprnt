@@ -1,6 +1,6 @@
 import { useState } from "react";
-import SearchBar from "./SearchBar";
-import ItemCategories from "./ItemCategories";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import ItemCategories from "../../components/ItemCategories/ItemCategories";
 
 export default function Home() {
   const [query, setQuery] = useState("");
@@ -15,5 +15,4 @@ export default function Home() {
       <ItemCategories />
     </>
   );
-
 }
