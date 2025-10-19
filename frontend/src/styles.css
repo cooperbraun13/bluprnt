@@ -50,9 +50,8 @@ main {
 .flex-container {
   display: flex;
   flex-direction: column;
-  margin-top: 5%;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   text-align: center;
   box-sizing: border-box;
 }
@@ -104,6 +103,7 @@ main {
   margin: 30px auto;
   width: 90%;
   max-width: 1000px;
+  margin: 16px auto;
 }
 
 #searchBar {
