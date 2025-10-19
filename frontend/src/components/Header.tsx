@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <div className="heading">
       <h1>
-        <Link to="http://localhost:5173/">BluPrnt</Link>
+        <Link to="/">BluPrnt</Link>
       </h1>
       <p className="tagline">Your blueprint for success</p>
     </div>

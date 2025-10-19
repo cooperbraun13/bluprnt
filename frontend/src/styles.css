@@ -1,27 +1,32 @@
-/* palette colors from coolors.co */
+/* palette colors */
 :root {
-  --oxford-blue: #031d44ff;
-  --prussian-blue: #04395eff;
-  --cambridge-blue: #70a288ff;
-  --tan: #dab785ff;
-  --burnt-sienna: #d5896fff;
+  --blue: rgb(10, 110, 163);
+  --tan: #d6d2cb;
+  --gold: #e3c079;
 }
 
 /* layout */
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Inter, sans-serif;
   background-color: var(--tan);
-  color: var(--oxford-blue);
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  color: var(--blue);
+  overflow-x: hidden;
 }
 
-.nav{
+main {
+  flex: 1;
+}
+
+.nav {
   display:flex;
   flex-direction: row;
   gap: 20%;
   justify-content: center;
-  background: var(--oxford-blue);
+  background: var(--blue);
   border-radius: 0 0 15px 15px;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
@@ -29,7 +34,7 @@ body {
   box-sizing: border-box;
 }
 
-.nav a{
+.nav a {
   color: var(--tan);
   justify-content: center;
   padding: 15px auto;
@@ -37,7 +42,7 @@ body {
   text-decoration:none;
 }
 
-.nav a:hover{
+.nav a:hover {
   padding: 15px auto;
   background-color: slategrey;
 }
@@ -52,11 +57,22 @@ body {
   box-sizing: border-box;
 }
 
+/* layout variants */
+.with-topbar {
+  padding-top: 100px;
+}
+
+.no-topbar {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+
 /* header */
 .heading {
   font-size: 28px;
   color: white;
-  background-color: var(--oxford-blue);
+  background-color: var(--blue);
   padding: 20px 10px;
   text-align: center;
   width: 100vw;
@@ -94,14 +110,14 @@ body {
   flex: 1;
   padding: 12px 14px;
   font-size: 16px;
-  border: 2px solid var(--prussian-blue);
+  border: 2px solid var(--blue);
   border-radius: 8px;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 #searchBar:focus {
-  border-color: var(--burnt-sienna);
+  border-color: var(--gold);
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--tan) 50%, white);
 }
 
@@ -111,17 +127,17 @@ button {
   font-size: 16px;
   font-weight: bold;
   text-align: center;
-  background-color: var(--prussian-blue);
+  background-color: var(--blue);
   color: white;
-  border: 2px solid var(--prussian-blue);
+  border: 2px solid var(--blue);
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 button:hover {
-  background-color: var(--burnt-sienna);
-  border-color: var(--burnt-sienna);
+  background-color: var(--gold);
+  border-color: var(--gold);
 }
 
 button:active {
@@ -129,7 +145,10 @@ button:active {
 }
 
 /* footer */
-footer { 
-  background: var(--oxford-blue);
-  color: tan;
+footer {
+  background: var(--blue);
+  color: var(--tan);
+  text-align: center;
+  padding: 15px 0;
+  margin-top: auto; /* pushes footer to bottom */
 }
