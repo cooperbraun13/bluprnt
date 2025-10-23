@@ -1,13 +1,21 @@
 import { Link } from "react-router-dom";
 import "./Header.css";
 
-export default function Header() {
+export default function Header({
+  title = "BluPrnt",
+  showTagline = true,
+  background = "main",
+}: {
+  title?: string;
+  showTagline?: boolean;
+  background?: "main" | "alt";
+}) {
   return (
-    <div className="heading">
+    <div className={`heading ${background}`}>
       <h1>
-        <Link to="/">BluPrnt</Link>
+        <Link to="/">{title}</Link>
       </h1>
-      <p className="tagline">Your blueprint for success</p>
+      {showTagline && <p className="tagline">Your blueprint for success</p>}
     </div>
   );
 }
