@@ -1,0 +1,11 @@
+.home-page {
+  padding: 2rem;
+}
+
+.home-page h2,
+.home-page h3 {
+  font-family: var(--font-heading);
+  color: var(--blueprint-text);
+  font-weight: 500;
+}
+

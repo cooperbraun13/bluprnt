@@ -1,0 +1,22 @@
+.vendors-page {
+  padding: 2rem;
+}
+
+.vendors-page h2,
+.vendors-page h3 {
+  font-family: var(--font-heading);
+  color: var(--blueprint-text);
+  font-weight: 500;
+}
+
+.vendor-card {
+  background-color: var(--blueprint-bg-light);
+  border: 1px solid var(--blueprint-accent);
+  border-radius: 10px;
+  padding: 20px;
+  transition: border-color 0.2s ease;
+}
+
+.vendor-card:hover {
+  border-color: var(--blueprint-secondary);
+}
