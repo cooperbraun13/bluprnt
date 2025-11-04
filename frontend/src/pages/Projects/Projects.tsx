@@ -8,6 +8,7 @@ export default function Projects() {
     <Header title="Projects" showTagline={false} background="alt" />
 
         <button className="proj-button">Add Project</button>
+        
         <div className="projects-overview">
         <div className="proj">
             <h2>Project 1</h2>
