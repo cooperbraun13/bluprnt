@@ -2,6 +2,7 @@ import Header from "../../components/Header/Header";
 import ProjectOverview from "./project-overview";
 import ProjectButton from "./project-button";
 import "./Projects.css";
+import ProjectTotal from "./project-total";
 
 export default function Projects() {
   return <div>
@@ -11,6 +12,7 @@ export default function Projects() {
         <div className="projects-overview">
         <div className="proj">
             <h2>Project 1</h2>
+            <ProjectTotal />
         </div>
         <div className="proj">
             <h2>Project 2</h2>

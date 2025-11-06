@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react";
 
-export default function Projects() {
+export default function ProjectTotal() {
     type Item = { id: number; name: string; vendor: string; cost: number; delivery: string };
     const [items, setItems] = useState<Item[]>([]);
     const [newItem, setNewItem] = useState({name:"", vendor:"", cost:"", delivery:""});
@@ -22,11 +22,67 @@ export default function Projects() {
             id: Date.now(),
             cost: parseFloat(newItem.cost),
         };
-
+        
         // Backend Stuff Here
 
         setItems((prev) => [...prev, newEntry]);
         setNewItem({name:"", vendor:"", cost:"", delivery:""});
     }
-    
+    return (
+    <div className="projects" style={{ padding: "20px" }}>
+      <h2>Project Cost Tracker</h2>
+
+      <div className="add-item" style={{ marginBottom: "15px" }}>
+        <input
+          placeholder="Item Name"
+          value={newItem.name}
+          onChange={(e) => setNewItem({ ...newItem, name: e.target.value })}
+        />
+        <input
+          placeholder="Vendor"
+          value={newItem.vendor}
+          onChange={(e) => setNewItem({ ...newItem, vendor: e.target.value })}
+        />
+        <input
+          type="number"
+          placeholder="Cost ($)"
+          value={newItem.cost}
+          onChange={(e) => setNewItem({ ...newItem, cost: e.target.value })}
+        />
+        <input
+          type="date"
+          value={newItem.delivery}
+          onChange={(e) => setNewItem({ ...newItem, delivery: e.target.value })}
+        />
+        <button onClick={addItem}>Add</button>
+      </div>
+
+      <table border={1} cellPadding={6} style={{ width: "100%", borderCollapse: "collapse" }}>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Vendor</th>
+            <th>Cost ($)</th>
+            <th>Delivery</th>
+          </tr>
+        </thead>
+        <tbody>
+          {items
+            .sort((a, b) => b.cost - a.cost)
+            .map((item) => (
+              <tr key={item.id}>
+                <td>{item.name}</td>
+                <td>{item.vendor}</td>
+                <td>{item.cost.toLocaleString()}</td>
+                <td>{item.delivery}</td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
+
+      <p style={{ marginTop: "15px" }}>
+        <strong>Total Cost:</strong> ${totalCost.toLocaleString()}
+      </p>
+    </div>
+  );
 }
