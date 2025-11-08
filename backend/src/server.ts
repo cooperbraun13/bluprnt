@@ -1,40 +1,38 @@
 import express, { Request, Response } from "express";
-import { PrismaClient } from "@prisma/client";
+import cors from "cors";
+import { testConnection } from "./db";
 
 const app = express();
-const prisma = new PrismaClient();
 
 // Middleware
 app.use(express.json());
+app.use(cors());
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Server is up and running!");
 });
 
-// quick health route for testing connectivity
-app.get("/health", (req: Request, res: Response) => {
-  res.status(200).json({ status: "ok" });
+// Health check route with database connectivity test
+app.get("/health", async (req: Request, res: Response) => {
+  try {
+    const dbConnected = await testConnection();
+    res.status(200).json({ 
+      status: "ok", 
+      database: dbConnected ? "connected" : "disconnected",
+      timestamp: new Date().toISOString()
+    });
+  } catch (error) {
+    res.status(500).json({ 
+      status: "error", 
+      database: "disconnected",
+      timestamp: new Date().toISOString()
+    });
+  }
 });
 
 // ping route as requested
 app.get("/ping", (req: Request, res: Response) => {
   res.json({ message: "pong" });
-});
-
-// vendors endpoint - returns all vendors from the database
-app.get("/vendors", async (req: Request, res: Response) => {
-  try {
-    const vendors = await prisma.vendor.findMany();
-    res.json(vendors);
-  } catch (error) {
-    console.error("Error fetching vendors:", error);
-    res.status(500).json({ error: "Failed to fetch vendors" });
-  }
-});
-
-// Graceful shutdown
-process.on('beforeExit', async () => {
-  await prisma.$disconnect();
 });
 
 export default app;
