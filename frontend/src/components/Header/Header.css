@@ -2,3 +2,17 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+.left-slot {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.right-slot {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}

@@ -1,8 +1,14 @@
-/* palette colors */
 :root {
-  --blue: rgb(10, 110, 163);
-  --tan: #d6d2cb;
-  --gold: #e3c079;
+  --blueprint-deep-navy: #1B263B;
+  --blueprint-bg-light: #2C3E50;
+  --blueprint-accent: #5A7A9C;
+  --blueprint-secondary: #8BA5BF;
+  --blueprint-text: #F0F1F3;
+  
+  /* font families */
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
 }
 
 /* layout */
@@ -11,23 +17,29 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
-  font-family: Inter, sans-serif;
-  background-color: var(--tan);
-  color: var(--blue);
+  font-family: var(--font-body);
+  background-color: var(--blueprint-deep-navy);
+  background-image: 
+    linear-gradient(rgba(240, 241, 243, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(240, 241, 243, 0.02) 1px, transparent 1px);
+  background-size: 30px 30px;
+  background-position: 0 0, 0 0;
+  color: var(--blueprint-text);
   overflow-x: hidden;
 }
 
 main {
   flex: 1;
+  position: relative;
 }
 
 .nav {
-  display:flex;
+  display: flex;
   flex-direction: row;
   gap: 20%;
   justify-content: center;
-  background: var(--blue);
-  border-radius: 0 0 15px 15px;
+  background: var(--blueprint-bg-light);
+  border-bottom: 1px solid var(--blueprint-accent);
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
@@ -35,16 +47,20 @@ main {
 }
 
 .nav a {
-  color: var(--tan);
+  color: var(--blueprint-text);
   justify-content: center;
-  padding: 15px auto;
-  border-radius: 6px;
-  text-decoration:none;
+  padding: 15px 20px;
+  text-decoration: none;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+  position: relative;
 }
 
 .nav a:hover {
-  padding: 15px auto;
-  background-color: slategrey;
+  color: var(--blueprint-text);
+  border-bottom: 2px solid var(--blueprint-accent);
 }
 
 .flex-container {
@@ -66,32 +82,34 @@ main {
   margin-top: 0;
 }
 
-
 /* header */
 .heading {
   font-size: 28px;
-  color: white;
-  background-color: var(--blue);
-  padding: 20px 10px;
+  color: var(--blueprint-text);
+  background: var(--blueprint-bg-light);
+  padding: 30px 10px;
   text-align: center;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
   box-sizing: border-box;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border-bottom: 1px solid var(--blueprint-accent);
+  position: relative;
 }
 
 .heading h1 {
   margin: 0;
-  font-size: 2.2rem;
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 600;
   letter-spacing: 1px;
 }
 
 .tagline {
-  margin-top: 5px;
-  font-size: 18px;
-  color: var(--tan);
-  font-style: italic;
+  margin-top: 8px;
+  font-size: 16px;
+  color: var(--blueprint-secondary);
+  font-weight: 300;
 }
 
 /* search bar */
@@ -110,45 +128,57 @@ main {
   flex: 1;
   padding: 12px 14px;
   font-size: 16px;
-  border: 2px solid var(--blue);
+  background-color: var(--blueprint-bg-light);
+  color: var(--blueprint-text);
+  border: 1px solid var(--blueprint-accent);
   border-radius: 8px;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-family: var(--font-body);
+  transition: all 0.2s ease;
+}
+
+#searchBar::placeholder {
+  color: var(--blueprint-secondary);
 }
 
 #searchBar:focus {
-  border-color: var(--gold);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--tan) 50%, white);
+  border-color: var(--blueprint-secondary);
+  background-color: var(--blueprint-bg-light);
 }
 
 /* buttons */
 button {
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: bold;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 400;
   text-align: center;
-  background-color: var(--blue);
-  color: white;
-  border: 2px solid var(--blue);
-  border-radius: 8px;
+  background-color: var(--blueprint-accent);
+  color: var(--blueprint-text);
+  border: 1px solid var(--blueprint-accent);
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  font-family: var(--font-body);
+  letter-spacing: 0.3px;
+  transition: all 0.2s ease;
 }
 
 button:hover {
-  background-color: var(--gold);
-  border-color: var(--gold);
+  background-color: var(--blueprint-secondary);
+  border-color: var(--blueprint-secondary);
 }
 
 button:active {
-  transform: translateY(1px);
+  transform: scale(0.98);
 }
 
 /* footer */
 footer {
-  background: var(--blue);
-  color: var(--tan);
+  background: var(--blueprint-bg-light);
+  color: var(--blueprint-secondary);
   text-align: center;
-  padding: 15px 0;
-  margin-top: auto; /* pushes footer to bottom */
+  padding: 20px 0;
+  margin-top: auto;
+  border-top: 1px solid var(--blueprint-accent);
+  font-size: 14px;
+  position: relative;
 }

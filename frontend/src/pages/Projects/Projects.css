@@ -1,0 +1,22 @@
+.projects-page {
+  padding: 2rem;
+}
+
+.projects-page h2,
+.projects-page h3 {
+  font-family: var(--font-heading);
+  color: var(--blueprint-text);
+  font-weight: 500;
+}
+
+.project-card {
+  background-color: var(--blueprint-bg-light);
+  border: 1px solid var(--blueprint-accent);
+  border-radius: 10px;
+  padding: 20px;
+  transition: border-color 0.2s ease;
+}
+
+.project-card:hover {
+  border-color: var(--blueprint-secondary);
+}

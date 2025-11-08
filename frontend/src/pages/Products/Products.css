@@ -1,0 +1,22 @@
+.products-page {
+  padding: 2rem;
+}
+
+.products-page h2,
+.products-page h3 {
+  font-family: var(--font-heading);
+  color: var(--blueprint-text);
+  font-weight: 500;
+}
+
+.product-card {
+  background-color: var(--blueprint-bg-light);
+  border: 1px solid var(--blueprint-accent);
+  border-radius: 10px;
+  padding: 20px;
+  transition: border-color 0.2s ease;
+}
+
+.product-card:hover {
+  border-color: var(--blueprint-secondary);
+}

@@ -1,16 +1,22 @@
 import { Routes, Route } from "react-router-dom";
-import Layout from "./Layout";
+import LayoutFull from "./LayoutFull";
+import LayoutMinimal from "./LayoutMinimal";
 import Home from "./pages/Home/Home";
-import Placeholder from "./components/Placeholder/Placeholder";
+import Products from "./pages/Products/Products";
+import Projects from "./pages/Projects/Projects";
+import Vendors from "./pages/Vendors/Vendors";
 
 export default function App() {
   return (
     <Routes>
-      <Route element={<Layout />}>
+      <Route element={<LayoutFull />}>
         <Route index element={<Home />} />
-        <Route path="products" element={<Placeholder title="All Products" />} />
-        <Route path="projects" element={<Placeholder title="Projects" />} />
-        <Route path="vendors" element={<Placeholder title="Vendor List" />} />
+      </Route>
+
+      <Route element={<LayoutMinimal />}>
+        <Route path="products" element={<Products />} />
+        <Route path="projects" element={<Projects />} />
+        <Route path="vendors" element={<Vendors />} />
       </Route>
     </Routes>
   );
