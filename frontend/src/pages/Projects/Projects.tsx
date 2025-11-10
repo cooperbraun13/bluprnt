@@ -1,6 +1,6 @@
 import Header from "../../components/Header/Header";
 import "./Projects.css";
-import ProjectTotal from "./project-total";
+import ProjectTotal from "./ProjectTotal";
 
 export default function Projects() {
   return (
