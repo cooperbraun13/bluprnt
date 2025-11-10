@@ -302,20 +302,22 @@ curl -X PUT http://localhost:3000/api/projects/1 \
 
 ## � API Status
 
-| Feature | Endpoint | Status | Description |
-|---------|----------|---------|-------------|
-| Search | `GET /api/search` | ✅ Working | Product search with filters |
-| Compare | `POST /api/compare` | ✅ Working | Product comparison with metrics |
-| Cart | `GET/POST/PUT/DELETE /api/cart` | ✅ Working | Full cart CRUD operations |
-| Projects | `GET/POST/PUT /api/projects` | ✅ Working | Project management |
-| Health | `GET /health` | ✅ Working | Server health check |
+| Feature  | Endpoint                        | Status     | Description                     |
+| -------- | ------------------------------- | ---------- | ------------------------------- |
+| Search   | `GET /api/search`               | ✅ Working | Product search with filters     |
+| Compare  | `POST /api/compare`             | ✅ Working | Product comparison with metrics |
+| Cart     | `GET/POST/PUT/DELETE /api/cart` | ✅ Working | Full cart CRUD operations       |
+| Projects | `GET/POST/PUT /api/projects`    | ✅ Working | Project management              |
+| Health   | `GET /health`                   | ✅ Working | Server health check             |
 
 ## 🔄 Next Steps
 
 ### Database Integration (Future)
+
 Currently using mock data in memory. To connect to PostgreSQL:
 
 1. **Install database client:**
+
    ```bash
    npm install pg @types/pg
    ```
@@ -325,6 +327,7 @@ Currently using mock data in memory. To connect to PostgreSQL:
 4. **Create database tables** matching the mock data structure
 
 ### PostgreSQL Commands (When Connected)
+
 ```bash
 # View database tables
 docker exec bluprnt-db psql -U app -d bluprnt_dev -c "\dt"
@@ -336,6 +339,7 @@ docker exec bluprnt-db psql -U app -d bluprnt_dev -c "SELECT * FROM products;"
 ## 🔧 Development Commands
 
 ### Container Management
+
 ```bash
 # View running containers
 docker-compose ps
@@ -351,6 +355,7 @@ docker-compose up -d
 ```
 
 ### Development Server
+
 ```bash
 # The server runs automatically in Docker with hot reload
 # Check logs: docker-compose logs backend
@@ -429,6 +434,7 @@ backend/
 ## 🚧 Development Roadmap
 
 ### ✅ Completed
+
 - [x] Core API endpoints (search, compare, cart, projects)
 - [x] Mock data structures
 - [x] TypeScript Express setup
@@ -436,8 +442,9 @@ backend/
 - [x] Hot reload development environment
 
 ### 🔄 Next Steps
+
 - [ ] Connect to PostgreSQL database
-- [ ] Add input validation middleware  
+- [ ] Add input validation middleware
 - [ ] Implement user authentication
 - [ ] Add comprehensive error handling
 - [ ] Create unit tests
@@ -449,21 +456,25 @@ backend/
 ### Common Issues
 
 **Check container status:**
+
 ```bash
 docker-compose ps
 ```
 
 **View logs:**
+
 ```bash
 docker-compose logs backend
 ```
 
 **Restart services:**
+
 ```bash
 docker-compose restart backend
 ```
 
 **Test endpoints:**
+
 ```bash
 curl http://localhost:3000/health
 # Should return: {"status":"ok"}
