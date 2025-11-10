@@ -1,3 +1,4 @@
+/* Projects.css */
 .projects-page {
   padding: 2rem;
 }
@@ -19,4 +20,100 @@
 
 .project-card:hover {
   border-color: var(--blueprint-secondary);
+}
+
+.proj-button {
+  /* note: justify-content only works on flex containers */
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.proj-button:hover {
+  background-color: #0056b3;
+}
+
+.back-button {
+  padding: 0.5rem 1rem;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: background-color 0.2s;
+}
+
+.back-button:hover {
+  background-color: #545b62;
+}
+
+.projects-overview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+  padding: 0 2rem;
+}
+
+.proj {
+  text-align: center;
+  font-weight: bold;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background-color: #fafafa;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.proj:hover {
+  border-color: #007bff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.project-workspace {
+  padding: 2rem;
+}
+
+.workspace-content {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Tablet (under ~900px): 2 columns */
+@media (max-width: 900px) {
+  .projects-overview {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Mobile (under ~600px): 1 column */
+@media (max-width: 600px) {
+  .projects-overview {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .proj {
+    padding: 1rem;
+    min-height: 120px;
+  }
 }
