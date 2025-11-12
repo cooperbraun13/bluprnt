@@ -30,7 +30,7 @@ export default function ProjectTotal() {
     }
     return (
     <div className="projects" style={{ padding: "20px" }}>
-      <h2>Project Cost Tracker</h2>
+      <h2 className="color: #1B263B;">Project Cost Tracker</h2>
 
       <div className="add-item" style={{ marginBottom: "15px" }}>
         <input

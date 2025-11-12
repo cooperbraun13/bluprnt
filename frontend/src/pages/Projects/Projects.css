@@ -1,3 +1,4 @@
+
 /* Projects.css */
 .projects-page {
   padding: 2rem;
@@ -6,11 +7,12 @@
 .projects-page h2,
 .projects-page h3 {
   font-family: var(--font-heading);
-  color: var(--blueprint-text);
+  color: #1B263B;
   font-weight: 500;
 }
 
 .project-card {
+  color: #1B263B;
   background-color: var(--blueprint-bg-light);
   border: 1px solid var(--blueprint-accent);
   border-radius: 10px;
@@ -55,6 +57,7 @@
 }
 
 .projects-overview {
+  color: #1B263B;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10em;
@@ -63,7 +66,7 @@
   padding: 0 2rem;
 }
 
-.proj {
+.proj {    
   text-align: center;
   font-weight: bold;
   border: 2px solid #ddd;
