@@ -38,11 +38,13 @@ export default function Projects() {
             <h2>{name}</h2>
 
             {/* Keep ProjectTotal functionality; show for Project 1 (adjust as needed) */}
-            {name.toLowerCase() === "project 1" && <ProjectTotal />}
-            {name.toLowerCase() === "project 2" && <ProjectTotal />}
-            {name.toLowerCase() === "project 3" && <ProjectTotal />}
+            {name.toLowerCase() === "project 1" }
+            {name.toLowerCase() === "project 2" }
+            {name.toLowerCase() === "project 3" }
+            <ProjectTotal/>
           </div>
         ))}
+
       </div>
     </div>
   );
