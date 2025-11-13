@@ -1,9 +1,13 @@
 import "dotenv/config";
 import { Pool } from "pg";
 
+if (!process.env.DATABASE_URL) {
+  throw new Error("DATABASE_URL not set in .env");
+}
+
 export const db = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false },
+  ssl: { rejectUnauthorized: false }, // needed to connect to supabase
 });
 
 db.query("SELECT 1")
