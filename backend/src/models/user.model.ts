@@ -21,7 +21,7 @@ export interface CreateUserParams {
 }
 
 // create a new user
-export async function createUser(params: CreateUserParams): Promise<User> {
+export async function CreateUser(params: CreateUserParams): Promise<User> {
   const {
     first_name,
     middle_name = null,
@@ -43,5 +43,60 @@ export async function createUser(params: CreateUserParams): Promise<User> {
 }
 
 // get a user by id
+export async function GetUser(params: User): Promise<User> {
+  const {
+    first_name,
+    middle_name = null,
+    last_name,
+    email,
+    discount = null,
+    created_at,
+  } = params;
+
+  const query = `
+    SELECT *
+    FROM users
+    WHERE id IS $1  
+  `;
+
+  const values = [
+    first_name,
+    middle_name,
+    last_name,
+    email,
+    discount,
+    created_at,
+  ];
+
+  const { rows } = await db.query<User>(query, values);
+  return rows[0][1];
+}
 
 // get all users
+export async function GetAllUsers(params: User): Promise<User> {
+  const {
+    first_name,
+    middle_name = null,
+    last_name,
+    email,
+    discount = null,
+    created_at,
+  } = params;
+
+  const query = `
+    SELECT *
+    FROM users  
+  `;
+
+  const values = [
+    first_name,
+    middle_name,
+    last_name,
+    email,
+    discount,
+    created_at,
+  ];
+
+  const { rows } = await db.query<User>(query, values);
+  return rows[0];
+}
