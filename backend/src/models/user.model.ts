@@ -39,64 +39,36 @@ export async function CreateUser(params: CreateUserParams): Promise<User> {
   const values = [first_name, middle_name, last_name, email, discount];
 
   const { rows } = await db.query<User>(query, values);
-  return rows[0];
+
+  const user = rows[0];
+
+  if (!user) {
+    throw new Error("Failed to create user.");
+  }
+
+  return user;
 }
 
 // get a user by id
-export async function GetUser(params: User): Promise<User> {
-  const {
-    first_name,
-    middle_name = null,
-    last_name,
-    email,
-    discount = null,
-    created_at,
-  } = params;
-
+export async function GetUser(user_id: number): Promise<User | null> {
   const query = `
-    SELECT *
+    SELECT user_id, first_name, middle_name, last_name, email, discount, created_at
     FROM users
-    WHERE id IS $1  
+    WHERE user_id = $1  
   `;
 
-  const values = [
-    first_name,
-    middle_name,
-    last_name,
-    email,
-    discount,
-    created_at,
-  ];
-
-  const { rows } = await db.query<User>(query, values);
-  return rows[0][1];
+  const { rows } = await db.query<User>(query, [user_id]);
+  return rows[0] ?? null;
 }
 
 // get all users
-export async function GetAllUsers(params: User): Promise<User> {
-  const {
-    first_name,
-    middle_name = null,
-    last_name,
-    email,
-    discount = null,
-    created_at,
-  } = params;
-
+export async function GetAllUsers(): Promise<User[]> {
   const query = `
-    SELECT *
-    FROM users  
+    SELECT user_id, first_name, middle_name, last_name, email, discount, created_at
+    FROM users
+    ORDER BY created_at DESC
   `;
 
-  const values = [
-    first_name,
-    middle_name,
-    last_name,
-    email,
-    discount,
-    created_at,
-  ];
-
-  const { rows } = await db.query<User>(query, values);
-  return rows[0];
+  const { rows } = await db.query<User>(query);
+  return rows;
 }
