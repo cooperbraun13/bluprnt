@@ -13,7 +13,7 @@ export const createUser = async (req: Request, res: Response) => {
 };
 
 // GET /api/users
-const getAllUsers = async (req: Request, res: Response) => {
+export const getAllUsers = async (req: Request, res: Response) => {
   try {
     const users = await GetAllUsers();
 
@@ -24,7 +24,7 @@ const getAllUsers = async (req: Request, res: Response) => {
 };
 
 // GET /api/users/:id
-const getUserById = async (req: Request, res: Response) => {
+export const getUserById = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const userIdNum = Number(id);

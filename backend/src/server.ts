@@ -1,10 +1,14 @@
 import express, { Request, Response } from "express";
 import "./config/database";
+import userRoutes from "./routes/users.route";
 
 const app = express();
 
 // Middleware
 app.use(express.json());
+
+// Routes
+app.use("/api/users", userRoutes);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Server is up and running!");
