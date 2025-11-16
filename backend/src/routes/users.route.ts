@@ -5,10 +5,11 @@ import {
   getUserById,
 } from "../controllers/user.controller";
 import { requireAuth } from "../middleware/auth.middleware";
+import { validateCreateUser } from "../middleware/validation";
 
 const router = Router();
 
-router.post("/", requireAuth, createUser);
+router.post("/", requireAuth, validateCreateUser, createUser);
 router.get("/", requireAuth, getAllUsers);
 router.get("/:id", requireAuth, getUserById);
 
