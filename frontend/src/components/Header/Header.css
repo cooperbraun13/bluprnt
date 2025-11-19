@@ -16,3 +16,36 @@ a {
   top: 50%;
   transform: translateY(-50%);
 }
+
+.Account {
+  position: absolute;
+  top: 40%;
+  left: 80%;
+
+  display: flex;        
+  flex-direction: row;  
+  align-items: center;             
+}
+
+
+.unknown_user{
+  display:block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+}
+
+.user_button{
+  padding:0;
+  width: 2.5rem;
+  height: 2.5rem;
+  overflow:hidden;
+  border-radius:50%;
+  border: 1px solid black;
+}
+
+.account_info{
+  position:static;
+  margin-left: 1rem;
+}
