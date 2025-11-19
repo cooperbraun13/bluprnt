@@ -35,7 +35,6 @@ CREATE TABLE products (
     product_name VARCHAR(100) NOT NULL,
     product_use VARCHAR(25),
     vendor_id INT,
-    stock INT DEFAULT 0,
     price NUMERIC(10,2) NOT NULL,
     FOREIGN KEY (vendor_id) REFERENCES vendors(vendor_id)
 );

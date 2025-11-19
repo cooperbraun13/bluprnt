@@ -3,10 +3,10 @@ import { db } from "../config/database";
 export interface User {
   user_id: number;
   first_name: string;
-  middle_name: string | null;
+  middle_name?: string;
   last_name: string;
   email: string;
-  discount: string | null;
+  discount?: string;
   created_at: Date;
 }
 
@@ -14,10 +14,10 @@ export interface User {
 // what the controller passes in when creating a user
 export interface CreateUserParams {
   first_name: string;
-  middle_name?: string | null;
+  middle_name?: string;
   last_name: string;
   email: string;
-  discount?: string | null;
+  discount?: string;
 }
 
 // create a new user
