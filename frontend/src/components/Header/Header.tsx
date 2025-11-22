@@ -26,7 +26,7 @@ export default function Header({
       {rightSlot && <div className="right-slot">{rightSlot}</div>}
       {showTagline && <p className="tagline">Your blueprint for success</p>}
       <div className="Account">    
-        <button className="back-button" onClick={() => navigate("/login")}>
+        <button className="user_button" onClick={() => navigate("/login")}>
         <img className="unknown_user" src="../../unknown_user.jpg" alt="Unknown User"></img>
         </button>
         <div><Link to="/login" className="account_info">{"Account Information"}</Link></div>
