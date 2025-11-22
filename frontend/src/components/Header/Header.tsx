@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Header.css";
+import {useNavigate} from "react-router-dom";
 
 export default function Header({
   title = "BluPrnt",
@@ -14,6 +15,8 @@ export default function Header({
   leftSlot?: React.ReactNode;
   rightSlot?: React.ReactNode;
 }) {
+  const navigate = useNavigate();
+
   return (
     <div className={`heading ${background}`}>
       {leftSlot && <div className="left-slot">{leftSlot}</div>}
@@ -22,8 +25,12 @@ export default function Header({
       </h1>
       {rightSlot && <div className="right-slot">{rightSlot}</div>}
       {showTagline && <p className="tagline">Your blueprint for success</p>}
-      <div className="Account"><button className="user_button"><img className="unknown_user" src="../../unknown_user.jpg" alt="Unknown User"></img></button>
-      <p className="account_info">Account Information</p></div>
+      <div className="Account">    
+        <button className="back-button" onClick={() => navigate("/login")}>
+        <img className="unknown_user" src="../../unknown_user.jpg" alt="Unknown User"></img>
+        </button>
+        <div><Link to="/login" className="account_info">{"Account Information"}</Link></div>
+    </div>
     </div>
   );
 }
