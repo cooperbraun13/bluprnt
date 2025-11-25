@@ -9,6 +9,10 @@ vi.mock("../config/database", () => ({
   },
 }));
 
+vi.mock("../config/supabaseClient", () => ({
+  supabase: {},
+}));
+
 let app: Express;
 
 beforeAll(async () => {
