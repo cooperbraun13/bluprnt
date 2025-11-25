@@ -33,7 +33,7 @@ INSERT INTO products (
     'Flooring',
     (SELECT vendor_id FROM vendors WHERE vendor_name = 'Dunn Lumber'),
     12.50,
-    'https://example.com/images/hardwood.jpg'
+    'https://www.wagnermeters.com/wp-content/uploads/2024/01/hardwood-flooring-types-of-wood.jpg'
 );
 
 -- Insert one project for the test user
