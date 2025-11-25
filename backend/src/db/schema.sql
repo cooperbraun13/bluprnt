@@ -23,7 +23,8 @@ CREATE TABLE users (
 CREATE TABLE vendors (
     vendor_id SERIAL PRIMARY KEY,
     vendor_name VARCHAR(100) NOT NULL,
-    website VARCHAR(100) DEFAULT NULL
+    website VARCHAR(255),
+    image_url TEXT NOT NULL
 );
 -- table for product data
 CREATE TABLE products (

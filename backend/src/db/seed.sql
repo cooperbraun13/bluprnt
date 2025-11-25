@@ -16,10 +16,10 @@ INSERT INTO users (
 );
 
 -- Insert some real vendors (vendor_id auto-generates)
-INSERT INTO vendors (vendor_name, website) VALUES
-('Dunn Lumber', 'https://www.dunnlumber.com/'),
-('Home Depot', 'https://www.homedepot.com'),
-('Lowe''s', 'https://www.lowes.com');
+INSERT INTO vendors (vendor_name, website, image_url) VALUES
+('Dunn Lumber', 'https://www.dunnlumber.com/', 'https://www.dunnlumber.com/static/version1761197420/frontend/BinaryAnvil/dunn/en_US/images/logo-share.jpg'),
+('Home Depot', 'https://www.homedepot.com', 'https://upload.wikimedia.org/wikipedia/commons/5/5f/TheHomeDepot.svg'),
+('Lowe''s', 'https://www.lowes.com', 'https://mobileimages.lowes.com/marketingimages/d0c68e7e-54a6-4d2d-a53d-385f8a156529/lowes-dp18-328966-og.png');
 
 -- Insert one product that belongs to Dunn Lumber
 INSERT INTO products (
