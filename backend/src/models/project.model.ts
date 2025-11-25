@@ -9,31 +9,28 @@ export interface Project {
 // for creating a new project (no id / created_at yet)
 // what the controller passes in when creating a project
 export interface CreateProjectParams {
-  project_id: number;
   project_name: string;
   user_id: number;
 }
 
 // create a new project
 export async function CreateProject(params: CreateProjectParams): Promise<Project> {
-  const {
-    project_name
-  } = params;
+  const { project_name, user_id } = params;
 
   const query = `
-    INSERT INTO projects (project_name)
-    VALUES ($1)
-    RETURNING project_id, project_name
+    INSERT INTO projects (project_name, user_id)
+    VALUES ($1, $2)
+    RETURNING project_id, project_name, user_id
   `;
 
-  const values = [project_name];
+  const values = [project_name, user_id];
 
   const { rows } = await db.query<Project>(query, values);
 
   const project = rows[0];
 
   if (!project) {
-    throw new Error("Failed to create user.");
+    throw new Error("Failed to create project.");
   }
 
   return project;
@@ -42,7 +39,7 @@ export async function CreateProject(params: CreateProjectParams): Promise<Projec
 // get a project by id
 export async function GetProject(project_id: number): Promise<Project | null> {
   const query = `
-    SELECT project_id, project_name
+    SELECT project_id, project_name, user_id
     FROM projects
     WHERE project_id = $1  
   `;
@@ -52,11 +49,11 @@ export async function GetProject(project_id: number): Promise<Project | null> {
 }
 
 // get all projects
-export async function GetAllUsers(): Promise<Project[]> {
+export async function GetAllProjects(): Promise<Project[]> {
   const query = `
-    SELECT project_id, project_name
+    SELECT project_id, project_name, user_id
     FROM projects
-    ORDER BY created_at DESC
+    ORDER BY project_id DESC
   `;
 
   const { rows } = await db.query<Project>(query);

@@ -25,7 +25,7 @@ CREATE TABLE users (
 CREATE TABLE vendors (
     vendor_id SERIAL PRIMARY KEY,
     vendor_name VARCHAR(100) NOT NULL,
-    industry VARCHAR(100) DEFAULT NULL
+    wesbite VARCHAR(100) DEFAULT NULL
 );
 
 

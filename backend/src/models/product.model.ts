@@ -11,26 +11,20 @@ export interface Product {
 // for creating a new product (no id / created_at yet)
 // what the controller passes in when creating a product
 export interface CreateProductParams {
-  product_id: number;
   product_name: string;
-  product_use: string;
-  vendor_id: number;
+  product_use?: string;
+  vendor_id?: number;
   price: number;
 }
 
 // create a new product
 export async function CreateProduct(params: CreateProductParams): Promise<Product> {
-  const {
-    product_name,
-    product_use,
-    vendor_id,
-    price,
-  } = params;
+  const { product_name, product_use = null, vendor_id = null, price } = params;
 
   const query = `
     INSERT INTO products (product_name, product_use, vendor_id, price)
     VALUES ($1, $2, $3, $4)
-    RETURNING user_id, first_name, middle_name, last_name, email, discount, created_at;
+    RETURNING product_id, product_name, product_use, vendor_id, price;
   `;
 
   const values = [product_name, product_use, vendor_id, price];
@@ -63,7 +57,7 @@ export async function GetAllProducts(): Promise<Product[]> {
   const query = `
     SELECT product_id, product_name, product_use, vendor_id, price
     FROM products
-    ORDER BY created_at DESC
+    ORDER BY product_id DESC
   `;
 
   const { rows } = await db.query<Product>(query);
