@@ -1,72 +1,71 @@
 /* seed data (test data) */
 
--- Dummy data values for testing
+-- Insert one test user (user_id will auto-generate)
 INSERT INTO users (
     first_name,
     last_name,
-    user_id,
     email,
     password,
     discount
 ) VALUES (
     'John',
     'Carpenter',
-    1,
     'example@email.com',
     'password',
     0.0
 );
 
-INSERT INTO vendors (
-    vendor_id,
-    vendor_name,
-    wesbite
-) VALUES (
-    1,
-    'Dunn Lumber',
-    'https://www.dunnlumber.com/'
-);
+-- Insert some real vendors (vendor_id auto-generates)
+INSERT INTO vendors (vendor_name, website) VALUES
+('Dunn Lumber', 'https://www.dunnlumber.com/'),
+('Home Depot', 'https://www.homedepot.com'),
+('Lowe''s', 'https://www.lowes.com');
 
+-- Insert one product that belongs to Dunn Lumber
 INSERT INTO products (
-    product_id,
     product_name,
     product_use,
     vendor_id,
-    price
+    price,
+    image_url
 ) VALUES (
-    1,
     'Hardwood',
     'Flooring',
-    1,
-    12.50
+    (SELECT vendor_id FROM vendors WHERE vendor_name = 'Dunn Lumber'),
+    12.50,
+    'https://example.com/images/hardwood.jpg'
 );
 
+-- Insert one project for the test user
 INSERT INTO projects (
-    project_id,
     user_id,
     project_name
 ) VALUES (
-    1,
-    1,
+    (SELECT user_id FROM users WHERE email = 'example@email.com'),
     'Bathroom Floor'
 );
 
+-- Insert an item into the project (100 units of Hardwood)
 INSERT INTO project_items (
     project_id,
     product_id,
     quantity
 ) VALUES (
-    1,
-    1,
+    (SELECT project_id 
+     FROM projects 
+     WHERE project_name = 'Bathroom Floor'
+       AND user_id = (SELECT user_id FROM users WHERE email = 'example@email.com')),
+    (SELECT product_id FROM products WHERE product_name = 'Hardwood'),
     100
 );
 
+-- Insert the same item into the cart for that user
 INSERT INTO cart_items (
     user_id,
     product_id,
-    quanitiy
+    quantity
 ) VALUES (
-    1,
-    1,
+    (SELECT user_id FROM users WHERE email = 'example@email.com'),
+    (SELECT product_id FROM products WHERE product_name = 'Hardwood'),
     100
 );

@@ -1,14 +1,18 @@
 import express, { Request, Response } from "express";
+import cors from "cors";
 import "./config/database";
 import userRoutes from "./routes/users.route";
+import productRoutes from "./routes/products.route";
 
 const app = express();
 
-// Middleware
+// middleware
+app.use(cors({ origin: "http://localhost:5173" }));
 app.use(express.json());
 
 // Routes
 app.use("/api/users", userRoutes);
+app.use("/api/products", productRoutes);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Server is up and running!");

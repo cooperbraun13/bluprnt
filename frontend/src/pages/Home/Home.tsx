@@ -1,13 +1,19 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import ItemCategories from "../../components/ItemCategories/ItemCategories";
 
 export default function Home() {
   const [query, setQuery] = useState("");
+  const navigate = useNavigate();
 
   function handleSearch(): void {
-    // for now, just log the current query to the console
-    console.log("Searching for:", query);
+    const trimmed = query.trim();
+    if (!trimmed) {
+      return;
+    }
+
+    navigate(`/search?q=${encodeURIComponent(trimmed)}`);
   }
   return (
     <>

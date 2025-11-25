@@ -1,0 +1,95 @@
+.search-results-page {
+  padding: 2rem 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.search-results-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+}
+
+.search-results-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.search-results-message {
+  text-align: center;
+  color: #475467;
+  margin: 0;
+}
+
+.search-results-message.error {
+  color: #ba4e4e;
+}
+
+.search-results-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.result-card {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.product-image {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.result-details {
+  flex: 1;
+  text-align: left;
+}
+
+.product-name {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.product-description {
+  margin: 0.3rem 0 0;
+  color: #a8b5c8;
+  font-size: 0.95rem;
+}
+
+.result-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 0.75rem;
+}
+
+.product-price {
+  font-weight: 600;
+  color: #f4d35e;
+}
+
+.vendor-pill {
+  padding: 0.25rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.85rem;
+  color: #ccd6f6;
+}
+

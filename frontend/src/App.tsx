@@ -5,12 +5,14 @@ import Home from "./pages/Home/Home";
 import Products from "./pages/Products/Products";
 import Projects from "./pages/Projects/Projects";
 import Vendors from "./pages/Vendors/Vendors";
+import SearchResults from "./pages/SearchResults/SearchResults";
 
 export default function App() {
   return (
     <Routes>
       <Route element={<LayoutFull />}>
         <Route index element={<Home />} />
+        <Route path="search" element={<SearchResults />} />
       </Route>
 
       <Route element={<LayoutMinimal />}>
