@@ -4,6 +4,7 @@ import "./config/database";
 import userRoutes from "./routes/users.route";
 import productRoutes from "./routes/products.route";
 import vendorRoutes from "./routes/vendors.route";
+import projectRoutes from "./routes/projects.route";
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/vendors", vendorRoutes);
+app.use("/api/projects", projectRoutes);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Server is up and running!");
