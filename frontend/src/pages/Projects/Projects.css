@@ -1,8 +1,4 @@
-
 /* Projects.css */
-.projects-page {
-  padding: 2rem;
-}
 
 .projects-page h2,
 .projects-page h3 {
@@ -89,6 +85,49 @@
   transform: translateY(-2px);
 }
 
+.projects-message {
+  margin-top: 1.5rem;
+  color: var(--blueprint-text);
+}
+
+.projects-message.error {
+  color: #ff8a8a;
+}
+
+.proj-header {
+  width: 100%;
+}
+
+.proj-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.proj-action-button {
+  flex: 1;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #007bff;
+  border-radius: 6px;
+  background: transparent;
+  color: #007bff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.proj-action-button:hover {
+  background: rgba(0, 123, 255, 0.1);
+}
+
+.proj-action-button.danger {
+  border-color: #c53030;
+  color: #c53030;
+}
+
+.proj-action-button.danger:hover {
+  background: rgba(197, 48, 48, 0.15);
+}
 .project-workspace {
   padding: 2rem;
 }
