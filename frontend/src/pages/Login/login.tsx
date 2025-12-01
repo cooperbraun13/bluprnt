@@ -41,7 +41,6 @@ export default function Login() {
           Login
         </button>
 
-        {/* ✅ Signup navigation button */}
         <p className="switch-text">
           Don't have an account?{" "}
           <button

@@ -1,6 +1,15 @@
+import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 
 export default function Signup() {
+  const navigate = useNavigate();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Sign Up Complete!");
+    //Future API stuff here potentially
+  };
+
   return (
     <>
       <Header title="Sign Up" showTagline={false} />
@@ -43,6 +52,16 @@ export default function Signup() {
           Sign Up
         </button>
       </form>
+
+          <p className="switch-text"/>
+          Already Have an Account?{" "}
+          <button
+            type="button"
+            onClick={() => navigate("/login")}
+            className="link-button"
+          >
+            Log in here!
+          </button>
     </>
   );
 }
