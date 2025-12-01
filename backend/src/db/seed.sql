@@ -11,6 +11,8 @@ INSERT INTO vendors VALUES(5, 'Amazon', 'https://www.amazon.com/?tag=hymsabk-20&
 
 INSERT INTO products VALUES(1, 'Hardwood', 'Flooring', 1, 10, 12.50);
 INSERT INTO products (product_id, product_name, product_use, vendor_id, price) VALUES
+(2,'Amerimax Flex-A-Spout 4.5 in. H X 4.5 in. W X 55 in. L White Vinyl Downspout Extension', 'Gutter', 4, 13.99),
+(3, 'Plaskolite Optix Clear Single Acrylic Sheet 24 in. W X 48 in. L X .100 in.', 'Glass', 4, 37.99),
 (4, 'Gallop - Maverick - Gray 12 ft. Wide x Cut to Length 24 oz. SD Polyester Texture Carpet', 'Flooring', 2, 1.19),
 (5, 'Prancer - Woodland - Beige 12 ft. Wide x Cut to Length 24 oz. SD Polyester Texture Carpet', 'Flooring', 2, 1.19),
 (6, 'Dreamcatcher - Dolphin - Gray 12 ft. Wide x Cut to Length 24 oz. Polyester Texture Carpet', 'Flooring', 2, 1.28),
@@ -46,6 +48,18 @@ INSERT INTO products (product_id, product_name, product_use, vendor_id, price) V
 (36, 'ToughRock 1/2-in x 4-ft x 8-ft Lite-Weight Regular Drywall Panel', 'Drywall', 3, 13.88),
 (37, 'James Hardie HardieBacker 3-ft x 5-ft x 1/4-in Waterproof Fiber cement Backer Board 1.0 Sheets', 'Drywall', 3, 12.85),
 (38, 'KOHLER Elliston White Elongated Chair height 12-in Rough-In WaterSense 1.28 GPF Soft Close 2-piece Toilet', 'Bathroom', 3, 259.00),
+(39, 'Globe Electric Hudson 8.25 in. H X 13 in. W X 13 in. L Brushed Nickel Ceiling Light', 'Lighting', 4, 37.99),
+(40, 'B&K Mueller 1-1/4 in. D X 60 in. L Galvanized Steel Pre-Cut Pipe', 'Plumbing', 4, 49.99),
+(41, 'Breville BOV900BSS Smart Oven Air Fryer Pro and Convection Oven, Brushed Stainless Steel', 'Appliance', 5, 399.95),
+(42, 'Good Earth Lighting Majestic 17-in Ceiling Fixture, 1950 Lumens, Dimmable, Matte Black', 'Lighting', 5, 99.98),
+(43, 'Art3d Peel and Stick Floor Tile Vinyl Wood Plank 36-Pack 54 Sq.Ft, Deep Gray, Rigid Surface Hard Core Easy DIY Self-Adhesive Flooring', 'Flooring', 5, 77.77),
+(44, 'Moen Arbor Matte Black One-Handle Pulldown Kitchen Sink Faucet Featuring Power Boost and Reflex Docking System, Black Kitchen Faucet with Pull Down Sprayer, 7594BL', 'Kitchen', 5, 274.92),
+(45, 'Art3d 102-Piece Peel and Stick Wall Tile for Kitchen Backsplash, Bathroom, Fireplace, 3in. x 6in. Stick on Subway Tile, Glossy White', 'Tile', 5, 39.99),
+(46, 'Solo Stove Bonfire 2.0 19.5 in. W Stainless Steel Round Multi-Fuel Fire Pit with Stand', 'Outdoor', 4, 399.99),
+(47, 'Reliance 40 gal 4500 W Electric Water Heater', 'Plumbing', 4, 499.99),
+(48, 'Alexandria Moulding 2 in. X 4 in. W X 8 ft. L Pine Stud #2/BTR Premium Grade', 'Lumber', 4, 7.99),
+(49, 'Alexandria Moulding 2 in. X 6 in. W X 8 ft. L Wood Lumber #2/BTR Premium Grade', 'Lumber', 4, 19.99),
+(50, 'Cato Jazmin Vitreous China Bathroom Sink 18.5 in. W X 15.75 in. D White', 'Bathroom', 4, 59.99),
 -- Default Project Items
 -- Bathroom
 (51, 'KOHLER Veil White Wall-Mount Sink', 'Bathroom', 2, 1249.00),
