@@ -2,6 +2,14 @@
   padding: 2rem;
 }
 
+.products-message {
+  margin-bottom: 1.5rem;
+}
+
+.products-message.error {
+  color: #ff8a8a;
+}
+
 .products-page h2,
 .products-page h3 {
   font-family: var(--font-heading);
@@ -9,14 +17,65 @@
   font-weight: 500;
 }
 
+.products-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
 .product-card {
   background-color: var(--blueprint-bg-light);
   border: 1px solid var(--blueprint-accent);
   border-radius: 10px;
-  padding: 20px;
-  transition: border-color 0.2s ease;
+  padding: 0.2rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: border-color 0.2s ease, transform 0.15s ease;
+  width: 260px;
+  flex: 0 0 260px;
 }
 
 .product-card:hover {
   border-color: var(--blueprint-secondary);
+  transform: translateY(-2px);
+}
+
+.product-image {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.product-body {
+  padding: 1rem 1.25rem 1.25rem;
+  text-align: center;
+  width: 100%;
+}
+
+.product-body h2 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--blueprint-text);
+}
+
+.product-use {
+  margin: 0.35rem 0 0;
+  font-size: 0.9rem;
+  color: var(--blueprint-secondary);
+}
+
+.product-vendor {
+  margin: 0.1rem 0 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.product-price {
+  margin-top: 0.75rem;
+  font-weight: 600;
+  color: var(--blueprint-text);
+  font-size: 0.95rem;
 }

@@ -5,6 +5,7 @@ export interface Product {
   product_name: string;
   product_use: string;
   vendor_id: number;
+  vendor_name: string | null;
   price: number;
   image_url: string;
 }
@@ -45,8 +46,15 @@ export async function CreateProduct(params: CreateProductParams): Promise<Produc
 // get a product by id
 export async function GetProduct(product_id: number): Promise<Product | null> {
   const query = `
-    SELECT product_id, product_name, product_use, vendor_id, price, image_url
-    FROM products
+    SELECT p.product_id,
+           p.product_name,
+           p.product_use,
+           p.vendor_id,
+           v.vendor_name,
+           p.price,
+           p.image_url
+    FROM products p
+    LEFT JOIN vendors v ON v.vendor_id = p.vendor_id
     WHERE product_id = $1  
   `;
 
@@ -57,8 +65,15 @@ export async function GetProduct(product_id: number): Promise<Product | null> {
 // get all products
 export async function GetAllProducts(): Promise<Product[]> {
   const query = `
-    SELECT product_id, product_name, product_use, vendor_id, price, image_url
-    FROM products
+    SELECT p.product_id,
+           p.product_name,
+           p.product_use,
+           p.vendor_id,
+           v.vendor_name,
+           p.price,
+           p.image_url
+    FROM products p
+    LEFT JOIN vendors v ON v.vendor_id = p.vendor_id
     ORDER BY product_id DESC
   `;
 
@@ -69,9 +84,16 @@ export async function GetAllProducts(): Promise<Product[]> {
 export async function SearchProducts(term: string): Promise<Product[]> {
   const likeValue = `%${term}%`;
   const query = `
-    SELECT product_id, product_name, product_use, vendor_id, price, image_url
-    FROM products
-    WHERE product_name ILIKE $1 OR COALESCE(product_use, '') ILIKE $1
+    SELECT p.product_id,
+           p.product_name,
+           p.product_use,
+           p.vendor_id,
+           v.vendor_name,
+           p.price,
+           p.image_url
+    FROM products p
+    LEFT JOIN vendors v ON v.vendor_id = p.vendor_id
+    WHERE p.product_name ILIKE $1 OR COALESCE(p.product_use, '') ILIKE $1
     ORDER BY product_name ASC
     LIMIT 25
   `;

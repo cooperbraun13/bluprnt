@@ -118,8 +118,8 @@ export default function SearchResults() {
                   <span className="product-price">
                     {priceFormatter.format(product.price)}
                   </span>
-                  {product.vendor_id && (
-                    <span className="vendor-pill">Vendor #{product.vendor_id}</span>
+                  {product.vendor_name && (
+                    <span className="vendor-pill">{product.vendor_name}</span>
                   )}
                 </div>
               </div>
