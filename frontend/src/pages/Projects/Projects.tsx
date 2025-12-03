@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Header from "../../components/Header/Header";
+import BackButton from "../../components/BackButton/BackButton";
 import "./Projects.css";
 import ProjectTotal from "./ProjectTotal";
 import {
@@ -98,7 +99,12 @@ export default function Projects() {
 
   return (
     <div className="projects-page">
-      <Header title="Projects" showTagline={false} background="alt" />
+      <Header
+        title="Projects"
+        showTagline={false}
+        background="alt"
+        leftSlot={<BackButton />}
+      />
 
       <button className="proj-button" onClick={handleAddProject}>
         Add Project

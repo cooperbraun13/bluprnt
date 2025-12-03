@@ -1,5 +1,15 @@
 import { Link } from "react-router-dom";
 import "./Header.css";
+import {useNavigate} from "react-router-dom";
+
+type HeaderProps = {
+  title?: string;
+  showTagline?: boolean;
+  background?: "main" | "alt";
+  leftSlot?: React.ReactNode;
+  rightSlot?: React.ReactNode;
+  hideAccount?: boolean;
+};
 
 export default function Header({
   title = "BluPrnt",
@@ -7,13 +17,10 @@ export default function Header({
   background = "main",
   leftSlot,
   rightSlot,
-}: {
-  title?: string;
-  showTagline?: boolean;
-  background?: "main" | "alt";
-  leftSlot?: React.ReactNode;
-  rightSlot?: React.ReactNode;
-}) {
+  hideAccount = false,
+}: HeaderProps) {
+  const navigate = useNavigate();
+
   return (
     <div className={`heading ${background}`}>
       {leftSlot && <div className="left-slot">{leftSlot}</div>}
@@ -22,6 +29,19 @@ export default function Header({
       </h1>
       {rightSlot && <div className="right-slot">{rightSlot}</div>}
       {showTagline && <p className="tagline">Your blueprint for success</p>}
+      {!hideAccount && (
+        <div className="account-chip" onClick={() => navigate("/login")}>
+          <img
+            className="account-avatar"
+            src="../../unknown_user.jpg"
+            alt="Unknown User"
+          />
+          <div className="account-text">
+            <span className="account-label">Logged out</span>
+            <span className="account-link">Account settings</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

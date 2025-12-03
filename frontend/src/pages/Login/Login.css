@@ -1,0 +1,88 @@
+.auth-page {
+  min-height: calc(100vh - 120px);
+  padding: 0 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.auth-card {
+  width: min(420px, 100%);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 0.45rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--blueprint-text);
+}
+
+.form-group input {
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(10, 38, 71, 0.4);
+  color: var(--blueprint-text);
+  padding: 0.65rem 0.85rem;
+  font-size: 0.95rem;
+}
+
+.form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.primary-button {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #0a2647, #144272);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.primary-button:hover {
+  opacity: 0.85;
+}
+
+.switch-text {
+  margin: 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  color: #8ec5ff;
+  text-decoration: underline;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.link-button:hover {
+  color: #cfdfff;
+}
+
